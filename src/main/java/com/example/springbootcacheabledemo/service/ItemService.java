@@ -27,7 +27,7 @@ public class ItemService {
         return random.nextInt();
     }
 
-    @Cacheable(value = "complexKeyCache")
+    @Cacheable(value = "complexKeyCache", key = "{ #keyPart1, #keyPart2 }")
     public String getComplexKey(String keyPart1, int keyPart2, String notKey) {
         try {
             Thread.sleep(10000);

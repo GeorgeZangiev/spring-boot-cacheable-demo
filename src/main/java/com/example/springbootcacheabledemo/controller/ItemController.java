@@ -6,6 +6,7 @@ import java.security.NoSuchAlgorithmException;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -25,7 +26,7 @@ public class ItemController {
     }
 
     @GetMapping("/complex-key")
-    public String getComplexKey(String keyPart1, int keyPart2, String notKey) {
+    public String getComplexKey(@RequestParam String keyPart1, @RequestParam int keyPart2, @RequestParam String notKey) {
         return itemService.getComplexKey(keyPart1, keyPart2, notKey);
     }
 }
